@@ -30,6 +30,11 @@
                             <input
                                 class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-4 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
                                 type="text" name="task_name" value="{{ $task->name }}" />
+                            <select name="task_category">
+                                <option value="未分類">カテゴリーを選択する</option>
+                                <option value="aaa">aaa</option>
+                                <option value="bbb">bbb</option>
+                            </select>
                             @error('task_name')
                             <div class="mt-3">
                                 <p class="text-red-500">
