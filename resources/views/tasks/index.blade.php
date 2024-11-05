@@ -50,9 +50,16 @@
                             class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors">
                             追加する
                         </button>
+
+
                     </div>
 
                 </form>
+                <div><button type="submit"
+                        class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors">
+                        カテゴリーを編集する
+                    </button>
+                </div>
 
                 @if ($tasks->isNotEmpty())
                 <div class="max-w-7xl mx-auto mt-20">
@@ -124,6 +131,8 @@
             </div>
         </div>
     </main>
+
+
     <footer class="bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="py-4 text-center">

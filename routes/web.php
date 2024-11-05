@@ -10,3 +10,7 @@ Route::get('/', function () {
 use App\Http\Controllers\TaskController;
 
 Route::resource('tasks', TaskController::class);
+
+use App\Http\Controllers\CategoryController;
+
+Route::resource('categorys', CategoryController::class);
