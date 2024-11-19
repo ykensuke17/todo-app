@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Category;
 use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
@@ -15,8 +16,9 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::where('status', false)->get();
+        $categories = Category::get();
 
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index', compact('tasks', 'categories'));
     }
 
 
@@ -76,7 +78,8 @@ class TaskController extends Controller
     public function edit($id)
     {
         $task = Task::find($id);
-        return view('tasks.edit', compact('task'));
+        $categories = Category::get();
+        return view('tasks.edit', compact('task', 'categories'));
     }
 
 

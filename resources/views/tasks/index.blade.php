@@ -42,9 +42,10 @@
                         </label>
 
                         <select name="task_category">
-                            <option value="未分類">カテゴリーを選択する</option>
-                            <option value="aaa">aaa</option>
-                            <option value="bbb">bbb</option>
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">
+                                {{$category->name}}</option>
+                            @endforeach
                         </select>
                         <button type="submit"
                             class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors">
@@ -55,11 +56,7 @@
                     </div>
 
                 </form>
-                <div><button type="submit"
-                        class="mt-8 p-4 bg-slate-800 text-white w-full max-w-xs hover:bg-slate-900 transition-colors">
-                        カテゴリーを編集する
-                    </button>
-                </div>
+
 
                 @if ($tasks->isNotEmpty())
                 <div class="max-w-7xl mx-auto mt-20">
@@ -78,10 +75,15 @@
                                 </thead>
                                 <tbody class="divide-y divide-gray-200 bg-white">
                                     @foreach ($tasks as $item)
+
                                     <tr>
                                         <td class="px-3 py-4 text-sm text-gray-500">
                                             <div>
-                                                {{ $item->category }}
+                                                @foreach($categories as $category)
+                                                @if($category->id == $item->category)
+                                                {{ $category->name }}
+                                                @endif
+                                                @endforeach
                                             </div>
                                             <div>
                                                 {{ $item->name }}
